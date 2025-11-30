@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Center Owner Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+</head>
+<body class="bg-light">
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="min-width: 380px;">
+      <h3 class="text-center mb-3">Center Owner Login</h3>
+
+      {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endif %}
+
+      <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mb-2">Login</button>
+
+        <p class="text-center mb-0">
+          Normal user? <a href="/login/">User Login</a><br>
+          Need an account? <a href="/">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
